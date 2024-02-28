@@ -1,18 +1,20 @@
 function fibonacci(num) {
     if (num <= 0) {
-        return 0; 
+        return 0; // 0 is the first term of Fibonacci sequence
     } else if (num === 1) {
-        return 1; 
+        return 1; // 1 is the second term of Fibonacci sequence
     } else {
-        let fib = []; 
-        fib[0] = 0;
-        fib[1] = 1;
+        let prev = 0;
+        let curr = 1;
+        let next;
 
         for (let i = 2; i <= num; i++) {
-            fib[i] = fib[i - 1] + fib[i - 2];
+            next = prev + curr;
+            prev = curr;
+            curr = next;
         }
 
-        return fib[num];
+        return prev;
     }
 }
 
